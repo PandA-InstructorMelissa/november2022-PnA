@@ -1,0 +1,5 @@
+Wordle
+
+Dordle
+
+Worduel
