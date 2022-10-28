@@ -12,7 +12,7 @@ Worduel
 # JavaScript
 1. word bank = Done
 2. Start with a random word from list = Done
-3. A way to check our guess with the word
+3. A way to check our guess with the word = Done
 4. a way to keep the game alive
 5. timer
 6. players
