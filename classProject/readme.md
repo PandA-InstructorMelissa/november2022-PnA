@@ -17,4 +17,12 @@ Worduel
 5. timer
 6. players
 7. Game choices # of letters in word 
-8. Keyboard
+8. Keyboard = Doneish
+
+
+# Functions
+- wordBank
+- letters
+- playerWord(letterCount)
+- choseWord(letterCount) - auto run inside playerWord (choses random word from wordBank)
+- checkGuess(guess, answer) - changing key colors and guess letter colors
