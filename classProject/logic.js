@@ -26,8 +26,11 @@ function choseWord(a) {
 }
 
 function checkGuess(b, c){
+    var result = 'Guess Again'
     if(b == c) {
-        console.log(true)
+        result = 'Correct'
+        // console.log(true)
+        return result
     }
     else {
         for(var i = 0; i < b.length; i++) {
@@ -44,6 +47,7 @@ function checkGuess(b, c){
                 letters[b.charAt(i)] = 'grey'
             }
         }
+        return result
     }
 }
 

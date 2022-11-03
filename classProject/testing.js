@@ -1,13 +1,14 @@
-
+/*
 // The Hard Coded Word Bank
 var wordBank = {
     'three': ['cat', 'dog', 'for', 'the', 'our','way', 'end', 'css'],
     'four': ['hold', 'word', 'bank', 'four', 'work', 'java', 'grey', 'week', 'read', 'game', 'code', 'node', 'html'],
     'five': ['right', 'place', 'color', 'wrong', 'apple', 'guess', 'beach', 'board', 'bored', 'alive', 'timer', 'clock', 'space', 'class', 'react', 'nodes']
-}
+} */
 var letters = {'a': 'white', 'b': 'white', 'c': 'white', 'd': 'white', 'e': 'white', 'f': 'white', 'g': 'white', 'h': 'white', 'i': 'white', 'j': 'white', 'k': 'white', 'l': 'white', 'm': 'white', 'n': 'white', 'o': 'white', 'p': 'white', 'q': 'white', 'r': 'white', 's': 'white','t': 'white', 'u': 'white', 'v': 'white', 'w': 'white', 'x': 'white', 'y': 'white', 'z': 'white'}
 // Assigning a random word from the word bank to each player
 // var a = 'three'
+/*
 function playerWord(a='three'){ // parameter will come from front end
     var playerOneWord = choseWord(a)
     // console.log('player1 word:', playerOneWord)
@@ -34,7 +35,7 @@ function choseWord(a) {
     // console.log("the word is:", theWord)
     return theWord
 }
-// choseWord('five')
+// choseWord('five') */
 
 // b = guess
 // c = correct word
@@ -68,5 +69,24 @@ function checkGuess(b, c){
     }
 }
 // checkGuess('cab', 'cat') // words will come from front end
+
+// check guesses for both at same time
+// if both wrong guess decrease player turns -1
+// if one player correct that player wins
+// if both players correct tie
+var playerOne = { name: 'Jane', turns: 6, word: 'end', guess: '' }
+var playerTwo = { name: 'Bill', turns: 6, word: 'dog', guess: '' }
+
+function rounds(p1, p2){
+    var nextRound = true
+    p1.guess = 'bot' //playerOne.guess
+    p2.guess = 'pet' // playerTwo.guess
+    var OneResult = checkGuess(p1.guess, p1.word)
+    var TwoResult = checkGuess(p2.guess, p2.word)
+    
+}
+rounds(playerOne, playerTwo)
+
+// change checkGuess to take playerinstance for this.keyboard
 
 module.exports = {playerWord, checkGuess}

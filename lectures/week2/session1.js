@@ -50,10 +50,36 @@ function LinkedList() {
         }
         length++
     }
+    this.removeAt = function(i) {
+        if (!this.head) return this
+        var currNode = head
+        var prevNode
+        var currIndex = 0
+        if (i === 0) {
+            head = currNode.next
+            length--
+            return this
+        }
+        else {
+            while(currIndex < i) {
+                currIndex++
+                prevNode = currNode
+                currNode = currNode.next
+            }
+            prevNode.next = currNode.next
+        }
+        length--
+    }
 }
 let computer = new LinkedList() 
-computer.add("Turn On Computer")
 
+console.log(computer.head())
+computer.add("Turn On Computer")
+console.log(computer.size())
 computer.add("Entered A Website")
 computer.addAt(1,"Open Browser")
 console.log(computer.head())
+computer.removeAt(0)
+console.log(computer.head())
+console.log(computer.size())
+console.log(computer)
