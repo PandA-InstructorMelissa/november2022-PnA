@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Worduel</title>
+</head>
+<body>
+    <header>
+        <h1>Worduel</h1>
+        <h3>By November 2022 P&A Cohort</h3>
+    </header>
+    <main>
+        <form name="wordChoice">
+            <label for="letterCount">Chose Word Letter Count</label>
+            <select name="letterCount" id="letterCount">
+                <option value="3">3 Letter Words</option>
+                <option value="4">4 Letter Words</option>
+                <option value="5">5 Letter Words</option>
+            </select>
+            <section>
+                <label for="playerOne">Player One's Name</label>
+                <input type="text" name="playerOne">
+            </section>
+            <section>
+                <label for="playerTwo">Player Two's Name</label>
+                <input type="text" name="playerTwo">
+            </section>
+            <button onclick="setUpGame(event)">Chose Letter Count</button>
+        </form>
+        <button onclick='playGame()'>Start Game</button>
+        <div class="board" id='board'>
+            <span class='letter'></span>
+        </div>
+    </main>
+    <footer>
+        <h3>Projects and Algorithms</h3>
+    </footer>
+    <script src="logic.js"></script>
+    <script src="class/player.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

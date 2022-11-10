@@ -40,32 +40,34 @@ function choseWord(a) {
 // b = guess
 // c = correct word
 // console.log("testing our return of words:", theWords)
-function checkGuess(b, c){
+function correctGuess(p){
     // pass in the guess as parameter
     // pass in the correct word
     // if guess == correct return true
     // else false
-    if(b == c) {
+    if(p.guess == p.word) {
         console.log(true)
+        return true
     }
     else {
-        for(var i = 0; i < b.length; i++) {
-            if (b.charAt(i) == c.charAt(i)) {
-                console.log('letter match change to green')
-                letters[b.charAt(i)] = 'green'
-                console.log("The letters:", letters)
+        for(var i = 0; i < p.guess.length; i++) {
+            if (p.guess.charAt(i) == p.word.charAt(i)) {
+                // console.log('letter match change to green')
+                letters[p.guess.charAt(i)] = 'green'
+                // console.log("The letters:", letters)
             }
-            else if(c.includes(b.charAt(i))) {
-                console.log('letter in word wrong place change yellow')
-                letters[b.charAt(i)] = 'yellow'
-                console.log("The letters:", letters)
+            else if(p.word.includes(p.guess.charAt(i))) {
+                // console.log('letter in word wrong place change yellow')
+                letters[p.guess.charAt(i)] = 'yellow'
+                // console.log("The letters:", letters)
             }
             else {
-                console.log('big fat wrong')
-                letters[b.charAt(i)] = 'grey'
-                console.log("The letters:", letters)
+                // console.log('big fat wrong')
+                letters[p.guess.charAt(i)] = 'grey'
+                // console.log("The letters:", letters)
             }
         }
+        return false
     }
 }
 // checkGuess('cab', 'cat') // words will come from front end
@@ -78,15 +80,30 @@ var playerOne = { name: 'Jane', turns: 6, word: 'end', guess: '' }
 var playerTwo = { name: 'Bill', turns: 6, word: 'dog', guess: '' }
 
 function rounds(p1, p2){
-    var nextRound = true
-    p1.guess = 'bot' //playerOne.guess
-    p2.guess = 'pet' // playerTwo.guess
-    var OneResult = checkGuess(p1.guess, p1.word)
-    var TwoResult = checkGuess(p2.guess, p2.word)
-    
+    p1.guess = 'end' //playerOne.guess
+    p2.guess = 'dog' // playerTwo.guess
+    var OneResult = correctGuess(p1)
+    var TwoResult = correctGuess(p2)
+    // console.log(OneResult)
+    p1.turns -=1
+    p2.turns -=1
+    // console.log(p1)
+    if (OneResult == TwoResult) {
+        if (OneResult) {
+            console.log("It's a tie")
+            return "It's a tie"
+        } else {
+            console.log("Both wrong")
+            return 'No winners'
+        }
+    } else {
+        if (OneResult) {
+            console.log('Player 1 is winner')
+            return "Player 1 wins"
+        } else {
+            console.log('Player 2 won')
+            return "Player 2 wins"
+        }
+    }
 }
 rounds(playerOne, playerTwo)
-
-// change checkGuess to take playerinstance for this.keyboard
-
-module.exports = {playerWord, checkGuess}

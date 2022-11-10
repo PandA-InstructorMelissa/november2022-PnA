@@ -1,12 +1,12 @@
 var wordBank = {
-    'three': ['cat', 'dog', 'for', 'the', 'our','way', 'end', 'css'],
-    'four': ['hold', 'word', 'bank', 'four', 'work', 'java', 'grey', 'week', 'read', 'game', 'code', 'node', 'html'],
-    'five': ['right', 'place', 'color', 'wrong', 'apple', 'guess', 'beach', 'board', 'bored', 'alive', 'timer', 'clock', 'space', 'class', 'react', 'nodes']
+    3: ['cat', 'dog', 'for', 'the', 'our','way', 'end', 'css'],
+    4: ['hold', 'word', 'bank', 'four', 'work', 'java', 'grey', 'week', 'read', 'game', 'code', 'node', 'html'],
+    5: ['right', 'place', 'color', 'wrong', 'apple', 'guess', 'beach', 'board', 'bored', 'alive', 'timer', 'clock', 'space', 'class', 'react', 'nodes']
 }
 
 var letters = {'a': 'white', 'b': 'white', 'c': 'white', 'd': 'white', 'e': 'white', 'f': 'white', 'g': 'white', 'h': 'white', 'i': 'white', 'j': 'white', 'k': 'white', 'l': 'white', 'm': 'white', 'n': 'white', 'o': 'white', 'p': 'white', 'q': 'white', 'r': 'white', 's': 'white','t': 'white', 'u': 'white', 'v': 'white', 'w': 'white', 'x': 'white', 'y': 'white', 'z': 'white'}
 
-function playerWord(a='three'){ 
+function playerWord(a=3){ 
     var playerOneWord = choseWord(a)
     var playerTwoWord = choseWord(a)
     while(playerOneWord == playerTwoWord) {
@@ -25,30 +25,52 @@ function choseWord(a) {
     return theWord
 }
 
-function checkGuess(b, c){
+function correctGuess(b, c){
     var result = 'Guess Again'
-    if(b == c) {
-        result = 'Correct'
-        // console.log(true)
-        return result
+    if(p.guess == p.word) {
+        console.log(true)
+        return true
     }
     else {
-        for(var i = 0; i < b.length; i++) {
-            if (b.charAt(i) == c.charAt(i)) {
+        for(var i = 0; i < p.guess.length; i++) {
+            if (p.guess.charAt(i) == p.word.charAt(i)) {
                 console.log('letter match change to green')
-                letters[b.charAt(i)] = 'green'
+                letters[p.guess.charAt(i)] = 'green'
             }
-            else if(c.includes(b.charAt(i))) {
+            else if(p.word.includes(p.guess.charAt(i))) {
                 console.log('letter in word wrong place change yellow')
-                letters[b.charAt(i)] = 'yellow'
+                letters[p.guess.charAt(i)] = 'yellow'
             }
             else {
                 console.log('big fat wrong')
-                letters[b.charAt(i)] = 'grey'
+                letters[p.guess.charAt(i)] = 'grey'
             }
         }
         return result
     }
 }
+function rounds(p1, p2){
+    var OneResult = correctGuess(p1)
+    var TwoResult = correctGuess(p2)
+    p1.turns -=1
+    p2.turns -=1
+    if (OneResult == TwoResult) {
+        if (OneResult) {
+            console.log("It's a tie")
+            return "It's a tie"
+        } else {
+            console.log("Both wrong")
+            return 'No winners'
+        }
+    } else {
+        if (OneResult) {
+            console.log('Player 1 is winner')
+            return "Player 1 wins"
+        } else {
+            console.log('Player 2 won')
+            return "Player 2 wins"
+        }
+    }
+}
 
-module.exports = {playerWord, checkGuess}
+// module.exports = {playerWord, correctGuess, rounds}
