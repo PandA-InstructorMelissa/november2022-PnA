@@ -1,0 +1,95 @@
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+body main .board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  padding: 2em;
+  gap: 10em;
+}
+body main .board .boardGuess {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .board .boardGuess .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body main .board .boardGuess .row .letter {
+  width: 50px;
+  height: 50px;
+  border: solid 2px black;
+  border-radius: 20%;
+  margin: 0.2em;
+}
+body main .board .boardGuess .keyboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 650px;
+}
+body main .board .boardGuess .keyboard span {
+  width: 50px;
+  height: 50px;
+  border: solid 2px black;
+  border-radius: 20%;
+  margin: 0.2em;
+  text-align: center;
+  font-size: 2.1em;
+}
+body main .board .boardGuess .keyboard .white {
+  background-color: white;
+}
+body main .board .boardGuess .keyboard .green {
+  background-color: green;
+}
+body main .board .boardGuess .keyboard .yellow {
+  background-color: yellow;
+}
+body main .board .boardGuess .keyboard .grey {
+  background-color: grey;
+}
