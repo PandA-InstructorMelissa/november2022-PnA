@@ -25,7 +25,7 @@ function playGame(e){
         for(r=1; r<=6; r++){
             if (playerOne.turns == 6) {
                 // talk to board id=one
-
+                // document.getElementById('one1').firstChild.innerHTML=key
             }
         }
         playing = false
