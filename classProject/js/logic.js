@@ -35,16 +35,21 @@ function choseWord(a) {
     return theWord
 }
 // build game board
-function drawPlayerBoard(p) {
+function drawPlayerBoard(p, num) {
+    // player Board
     var node = document.createElement('div')
     node.setAttribute('class', 'boardGuess')
+    node.setAttribute('id', num)
     var h2 = document.createElement('h2')
     var name = document.createTextNode(p.name)
     h2.appendChild(name)
     node.appendChild(h2)
+    // builds 6 rows
     for (var i = 1; i <=6; i++) {
         var div = document.createElement('div')
         div.setAttribute('class', 'row')
+        div.setAttribute('id', num+i)
+        // builds each letter box in the row
         for (var lc = 1; lc <= letterCount; lc++) {
             var span = document.createElement('span')
             span.setAttribute('class', 'letter')
@@ -52,11 +57,18 @@ function drawPlayerBoard(p) {
         }
         node.appendChild(div)
     }
+    // player keyboard
     var keys = document.createElement('div')
     keys.setAttribute('class', 'keyboard')
     for (var i = 0; i < 26; i++) {
         var key = document.createElement('span')
         var value = document.createTextNode(Object.keys(p.keyboard)[i])
+        key.addEventListener('click', (event)=> {
+            console.log("I clicked the letter", event.target.innerText)
+            event.target.setAttribute('class', 'grey')
+            var l = event.target.innerText
+            letterChoice(p,l)
+        })
         key.appendChild(value)
         key.setAttribute('class', Object.values(p.keyboard)[i])
         keys.appendChild(key)
@@ -64,6 +76,15 @@ function drawPlayerBoard(p) {
     node.appendChild(keys)
     document.getElementById('board').appendChild(node)
 }
+
+// Onclick function
+function letterChoice(p, key) {
+    console.log("letter", key)
+    console.log("what is p", p)
+    p.guess += key
+    console.log("the guess so far", p.guess)
+}
+
 // Checking player guess
 function correctGuess(b, c){
     var result = 'Guess Again'

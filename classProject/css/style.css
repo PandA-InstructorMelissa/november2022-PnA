@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK0nS.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/archivonarrow/v24/tss5ApVBdCYD5Q7hcxTE1ArZ0Zz8oY2KRmwvKhhvLFGKpA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2hsY.ttf) format('truetype');
+}
 .flexrow {
   display: flex;
   flex-direction: row;
@@ -15,6 +36,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'VT323', monospace;
+  background-color: #000;
+  color: #f110b9;
 }
 body header {
   display: flex;
@@ -34,6 +59,23 @@ body main form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 1em;
+}
+body main form input[type=text] {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'VT323', monospace;
+}
+body main form select {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'VT323', monospace;
+  padding: 0.5em;
+}
+body main form button {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-family: 'VT323', monospace;
+  background-color: #000;
+  box-shadow: 5px 2px #808080;
+  color: #f110b9;
   margin: 1em;
 }
 body main .board {
@@ -60,9 +102,11 @@ body main .board .boardGuess .row {
 body main .board .boardGuess .row .letter {
   width: 50px;
   height: 50px;
-  border: solid 2px black;
+  border: solid 2px #f110b9;
   border-radius: 20%;
   margin: 0.2em;
+  background-color: #fff;
+  color: #f110b9;
 }
 body main .board .boardGuess .keyboard {
   display: flex;
@@ -75,7 +119,7 @@ body main .board .boardGuess .keyboard {
 body main .board .boardGuess .keyboard span {
   width: 50px;
   height: 50px;
-  border: solid 2px black;
+  border: solid 2px #f110b9;
   border-radius: 20%;
   margin: 0.2em;
   text-align: center;

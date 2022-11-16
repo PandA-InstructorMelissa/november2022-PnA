@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// font-family: 'Press Start 2P', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=VT323&display=swap');
+//     font-family: 'Archivo Narrow', sans-serif;
+// font-family: 'VT323', monospace;
+
 .flexrow {
     display: flex;
     flex-direction: row;
@@ -11,8 +17,24 @@
     align-items: center;
 }
 
+@red: #ff0000;
+@pink: #f110b9;
+@blue: #0004ff;
+@purple: #f508f5;
+@white: #fff;
+@black: #000;
+@grey: #808080;
+@green: #0df50d;
+@yellow: #fbff00;
+@bgShade: #fbff0070;
+
 body {
     .flexcolumn();
+    // font-family: 'Press Start 2P', cursive;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-family: 'VT323', monospace;
+    background-color: @black;
+    color: @pink;
 
     header {
         .flexcolumn();
@@ -24,6 +46,24 @@ body {
         form {
             .flexcolumn();
             margin: 1em;
+
+            input[type=text] {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+            }
+            select {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+                padding: .5em;
+            }
+            button {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+                background-color: @black;
+                box-shadow: 5px 2px @grey;
+                color: @pink;
+                margin: 1em;
+            }
         }
         .board {
             .flexrow();
@@ -40,9 +80,11 @@ body {
                     .letter {
                         width: 50px;
                         height: 50px;
-                        border: solid 2px black;
+                        border: solid 2px @pink;
                         border-radius: 20%;
                         margin: .2em;
+                        background-color: @white;
+                        color: @pink;
                     }
                 }
                 .keyboard {
@@ -53,7 +95,7 @@ body {
                     span {
                         width: 50px;
                         height: 50px;
-                        border: solid 2px black;
+                        border: solid 2px @pink;
                         border-radius: 20%;
                         margin: .2em;
                         text-align: center;

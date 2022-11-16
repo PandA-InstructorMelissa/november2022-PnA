@@ -19,11 +19,14 @@ function playGame(e){
         console.log("Player One instance created", playerOne)
         var playerTwo = new Player(playTwoName, playTwoRandWord)
         console.log("Player Two instance created", playerTwo)
-        drawPlayerBoard(playerOne)
-        drawPlayerBoard(playerTwo)
+        drawPlayerBoard(playerOne, 'one')
+        drawPlayerBoard(playerTwo, 'two')
         // Rounds
         for(r=1; r<=6; r++){
-            
+            if (playerOne.turns == 6) {
+                // talk to board id=one
+
+            }
         }
         playing = false
     }
