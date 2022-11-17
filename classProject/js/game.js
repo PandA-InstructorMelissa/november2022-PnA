@@ -22,11 +22,21 @@ function playGame(e){
         drawPlayerBoard(playerOne, 'one')
         drawPlayerBoard(playerTwo, 'two')
         // Rounds
-        for(r=1; r<=6; r++){
-            if (playerOne.turns == 6) {
-                // talk to board id=one
-                // document.getElementById('one1').firstChild.innerHTML=key
+        if (playerOne.turns == 6) {
+            // talk to board id=one
+            // document.getElementById('one1').firstChild.innerHTML=key
+            alert("Player One's turn")
+            alert("Player One please enter your guess")
+            console.log('player object check', playerOne.turns)
+            console.log('player guess check as keys are pressed', playerOne.guess.length)
+            if (playerOne.guess.length == playerOne.word.length) {
+                alert("player 2 your turn")
+                if (playerTwo.guess.length == playerTwo.word.length) {
+                    var answer = rounds(playerOne, playerTwo)
+                    alert("{answer}")
+                }
             }
+
         }
         playing = false
     }

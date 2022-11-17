@@ -37,6 +37,7 @@ function choseWord(a) {
 // build game board
 function drawPlayerBoard(p, num) {
     // player Board
+    var checking = p.guess.length != p.word.length
     var node = document.createElement('div')
     node.setAttribute('class', 'boardGuess')
     node.setAttribute('id', num)
@@ -67,7 +68,10 @@ function drawPlayerBoard(p, num) {
             console.log("I clicked the letter", event.target.innerText)
             event.target.setAttribute('class', 'grey')
             var l = event.target.innerText
-            letterChoice(p,l)
+            while (checking) {
+                letterChoice(p,l)
+                return checking
+            }
         })
         key.appendChild(value)
         key.setAttribute('class', Object.values(p.keyboard)[i])
@@ -78,15 +82,18 @@ function drawPlayerBoard(p, num) {
 }
 
 // Onclick function
-function letterChoice(p, key) {
+function letterChoice(p, key, checking) {
     console.log("letter", key)
     console.log("what is p", p)
     p.guess += key
-    console.log("the guess so far", p.guess)
+    console.log("the guess so far", p.guess, "length of guess", p.guess.length)
+    if (p.guess.length === p.word.length) {
+        checking = true
+    }
 }
 
 // Checking player guess
-function correctGuess(b, c){
+function correctGuess(p){
     var result = 'Guess Again'
     if(p.guess == p.word) {
         console.log(true)
@@ -119,18 +126,24 @@ function rounds(p1, p2){
     if (OneResult == TwoResult) {
         if (OneResult) {
             console.log("It's a tie")
-            return "It's a tie"
+            p1.roundResult = "It's a tie"
+            p2.roundResult = "It's a tie"
+            return p1
         } else {
             console.log("Both wrong")
-            return 'No winners'
+            p1.roundResult = 'No winners'
+            p2.roundResult = 'No winners'
+            return p1
         }
     } else {
         if (OneResult) {
             console.log('Player 1 is winner')
-            return "Player 1 wins"
+            p1.roundResult = "Player 1 won"
+            p2.roundResult = "Player 2 lost"
+            return p1
         } else {
             console.log('Player 2 won')
-            return "Player 2 wins"
+            p1.roundResult = "Player 1 lost"
         }
     }
 }
