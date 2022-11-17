@@ -1,13 +1,15 @@
+// Global word bank
 var wordBank = {
     3: ['cat', 'dog', 'for', 'the', 'our','way', 'end', 'css'],
     4: ['hold', 'word', 'bank', 'four', 'work', 'java', 'grey', 'week', 'read', 'game', 'code', 'node', 'html'],
     5: ['right', 'place', 'color', 'wrong', 'apple', 'guess', 'beach', 'board', 'bored', 'alive', 'timer', 'clock', 'space', 'class', 'react', 'nodes']
 }
 
+// Global builds keyboard?
 var letters = {'a': 'white', 'b': 'white', 'c': 'white', 'd': 'white', 'e': 'white', 'f': 'white', 'g': 'white', 'h': 'white', 'i': 'white', 'j': 'white', 'k': 'white', 'l': 'white', 'm': 'white', 'n': 'white', 'o': 'white', 'p': 'white', 'q': 'white', 'r': 'white', 's': 'white','t': 'white', 'u': 'white', 'v': 'white', 'w': 'white', 'x': 'white', 'y': 'white', 'z': 'white'}
 
 
-// Game set up
+// Game set up comes from form on html
 function setUpGame(){
     letterCount = document.wordChoice.letterCount.value
     playOneName = document.wordChoice.playerOne.value
@@ -37,7 +39,6 @@ function choseWord(a) {
 // build game board
 function drawPlayerBoard(p, num) {
     // player Board
-    var checking = p.guess.length != p.word.length
     var node = document.createElement('div')
     node.setAttribute('class', 'boardGuess')
     node.setAttribute('id', num)
@@ -68,10 +69,7 @@ function drawPlayerBoard(p, num) {
             console.log("I clicked the letter", event.target.innerText)
             event.target.setAttribute('class', 'grey')
             var l = event.target.innerText
-            while (checking) {
-                letterChoice(p,l)
-                return checking
-            }
+            letterChoice(p,l)
         })
         key.appendChild(value)
         key.setAttribute('class', Object.values(p.keyboard)[i])
@@ -82,13 +80,19 @@ function drawPlayerBoard(p, num) {
 }
 
 // Onclick function
-function letterChoice(p, key, checking) {
+function letterChoice(p, key) {
     console.log("letter", key)
     console.log("what is p", p)
     p.guess += key
     console.log("the guess so far", p.guess, "length of guess", p.guess.length)
-    if (p.guess.length === p.word.length) {
-        checking = true
+}
+function round(p) {
+    if(p.guess.length < p.word.length) {
+        console.log("Keep guessing")
+        return true
+    } else {
+        console.log("change players")
+        return false
     }
 }
 
