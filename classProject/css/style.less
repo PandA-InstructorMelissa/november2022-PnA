@@ -116,5 +116,29 @@ body {
                 }
             }
         }
+        .contribs {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .contrib {
+                margin: 1em;
+                padding: .5em;
+                border: 3px groove #FFEDAB;
+                background-color: #DBEBD4;
+                .flexcolumn();
+
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    margin: 1em;
+                    padding: .5em;
+                    background-color: #DBEBD4;
+                }
+                .contribImg {
+                    max-width: 100px;
+                    margin: .3em;
+                }
+            }
+        }
     }
 }
