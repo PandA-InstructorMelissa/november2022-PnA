@@ -51,7 +51,7 @@ const makePlayerBoard = (p, num) => {
 	}
 };
 
-const makePlayerKeyboard = (p) => {
+const makePlayerKeyboard = async (p, num) => {
 	var keys = document.createElement('div');
 	keys.setAttribute('class', 'keyboard');
 	for (var i = 0; i < 26; i++) {
@@ -64,6 +64,6 @@ const makePlayerKeyboard = (p) => {
 		key.setAttribute('class', Object.values(p.keyboard)[i]);
 		keys.appendChild(key);
 	}
-	node.appendChild(keys);
+	let node = await document.getElementById(num).appendChild(keys);
 	document.getElementById('board').appendChild(node);
 };

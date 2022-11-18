@@ -13,9 +13,10 @@ let currentBox;
 async function playGame(e) {
 	e.preventDefault();
 	setUpGame();
-	playerWord(letterCount);
+	// playerWord(letterCount);
 
-	var playerOne = new Player(playOneName);
+	var playerOne = new Player(playOneName, letterCount);
+	// playerOne.setRandomWord(letterCount);
 	await drawPlayerBoard(playerOne, 'one');
 	currentRow = await document.getElementById('one1');
 	currentBox = await currentRow.firstElementChild;
