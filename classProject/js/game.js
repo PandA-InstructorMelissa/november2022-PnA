@@ -15,8 +15,8 @@ async function playGame(e) {
 	setUpGame();
 	// playerWord(letterCount);
 
-	var playerOne = new Player(playOneName);
-	playerOne.setRandomWord(letterCount);
+	var playerOne = new Player(playOneName, letterCount);
+	// playerOne.setRandomWord(letterCount);
 	await drawPlayerBoard(playerOne, 'one');
 	currentRow = await document.getElementById('one1');
 	currentBox = await currentRow.firstElementChild;

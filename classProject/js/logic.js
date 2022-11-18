@@ -60,9 +60,9 @@ function setUpGame() {
 }
 
 // build game board
-function drawPlayerBoard(p, num) {
-	makePlayerBoard(p, num);
-	makePlayerKeyboard(p);
+async function drawPlayerBoard(p, num) {
+	await makePlayerBoard(p, num);
+	await makePlayerKeyboard(p, num);
 }
 
 // Onclick function

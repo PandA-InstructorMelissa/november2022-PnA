@@ -1,8 +1,8 @@
 class Player {
-	constructor(name) {
+	constructor(name, a) {
 		this.name = name;
 		this.turns = 6;
-		this.word = word;
+		this.word = this.setRandomWord(a);
 		this.guess = '';
 		this.roundResult = '';
 		this.keyboard = {
@@ -33,7 +33,6 @@ class Player {
 			y: 'white',
 			z: 'white',
 		};
-		this.setRandomWord();
 	}
 
 	getGuess() {
