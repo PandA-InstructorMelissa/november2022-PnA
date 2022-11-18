@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Worduel</title>
-  </head>
-  <body>
-    <header>
-      <h1>Worduel</h1>
-      <h3>By November 2022 P&A Cohort</h3>
-      <nav>
-        <a href="./index.html">Game</a>
-        <a href="./about.html">About</a>
-      </nav>
-    </header>
-    <main>
-      <form name="wordChoice">
-        <label for="letterCount">Chose Word Letter Count</label>
-        <select name="letterCount" id="letterCount">
-          <option value="3">3 Letter Words</option>
-          <option value="4">4 Letter Words</option>
-          <option value="5">5 Letter Words</option>
-        </select>
-        <section>
-          <label for="playerOne">Player One's Name</label>
-          <input type="text" name="playerOne" />
-        </section>
-        <!-- <section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Worduel</title>
+	</head>
+	<body>
+		<header>
+			<h1>Worduel</h1>
+			<h3>By November 2022 P&A Cohort</h3>
+			<nav>
+				<a href="./index.html">Game</a>
+				<a href="./about.html">About</a>
+			</nav>
+		</header>
+		<main>
+			<form name="wordChoice">
+				<label for="letterCount">Chose Word Letter Count</label>
+				<select name="letterCount" id="letterCount">
+					<option value="3">3 Letter Words</option>
+					<option value="4">4 Letter Words</option>
+					<option value="5">5 Letter Words</option>
+				</select>
+				<section>
+					<label for="playerOne">Player One's Name</label>
+					<input type="text" name="playerOne" />
+				</section>
+				<!-- <section>
                 <label for="playerTwo">Player Two's Name</label>
                 <input type="text" name="playerTwo">
             </section> -->
-        <button onclick="playGame(event)">Choose Letter Count</button>
-      </form>
-      <div class="board" id="board"></div>
-      <button onclick="quitGame()">Quit</button>
-    </main>
-    <footer>
-      <h3>Projects and Algorithms</h3>
-    </footer>
-    <script src="js/logic.js"></script>
-    <script src="js/class/player.js"></script>
-    <script src="js/game.js"></script>
-  </body>
+				<button onclick="playGame(event)">Choose Letter Count</button>
+			</form>
+			<div class="board" id="board"></div>
+			<button onclick="quitGame()">Quit</button>
+		</main>
+		<footer>
+			<h3>Projects and Algorithms</h3>
+		</footer>
+		<script src="js/logic.js"></script>
+		<script src="js/lib/library.js"></script>
+		<script src="js/class/player.js"></script>
+		<script src="js/game.js"></script>
+	</body>
 </html>

@@ -59,86 +59,13 @@ function setUpGame() {
 	// playTwoName = document.wordChoice.playerTwo.value
 }
 
-// Setting the players words
-function playerWord(a = 3) {
-	var playerOneWord = chooseWord(a);
-	// var playerTwoWord = choseWord(a)
-	// while(playerOneWord == playerTwoWord) {
-	//     var playerTwoWord = choseWord(a)
-	// }
-	theWords = {
-		playerOneWord: playerOneWord,
-		// 'playerTwoWord': playerTwoWord
-	};
-	return theWords;
-}
-
-// Randomizer
-function chooseWord(a) {
-	var random = Math.floor(Math.random() * wordBank[a].length);
-	var theWord = wordBank[a][random];
-	return theWord;
-}
 // build game board
 function drawPlayerBoard(p, num) {
-	// player Board
-	var node = document.createElement('div');
-	node.setAttribute('class', 'boardGuess');
-	node.setAttribute('id', num);
-	var h2 = document.createElement('h2');
-	var name = document.createTextNode(p.name);
-	h2.appendChild(name);
-	node.appendChild(h2);
-	// builds 6 rows
-	for (var i = 1; i <= 6; i++) {
-		var div = document.createElement('div');
-		div.setAttribute('class', 'row');
-		div.setAttribute('id', num + i);
-		// builds each letter box in the row
-		for (var lc = 1; lc <= letterCount; lc++) {
-			var span = document.createElement('span');
-			span.setAttribute('class', 'letter');
-			div.appendChild(span);
-		}
-		node.appendChild(div);
-	}
-	// player keyboard
-	var keys = document.createElement('div');
-	keys.setAttribute('class', 'keyboard');
-	for (var i = 0; i < 26; i++) {
-		var key = document.createElement('span');
-		var value = document.createTextNode(Object.keys(p.keyboard)[i]);
-		key.addEventListener('click', (event) => {
-			console.log('I clicked the letter', event.target.innerText);
-			event.target.setAttribute('class', 'grey');
-			var l = event.target.innerText;
-			currentBox.innerText = l;
-			letterChoice(p, l);
-			if (p.guess.length === p.word.length) {
-				currentRow = currentRow.nextElementSibling;
-				currentBox = currentRow.firstElementChild;
-				p.guess = '';
-				console.log(currentRow);
-				console.log(currentBox);
-			} else {
-				currentBox = currentBox.nextElementSibling;
-			}
-		});
-		key.appendChild(value);
-		key.setAttribute('class', Object.values(p.keyboard)[i]);
-		keys.appendChild(key);
-	}
-	node.appendChild(keys);
-	document.getElementById('board').appendChild(node);
+	makePlayerBoard(p, num);
+	makePlayerKeyboard(p);
 }
 
 // Onclick function
-function letterChoice(p, key) {
-	console.log('letter', key);
-	console.log('what is p', p);
-	p.guess += key;
-	console.log('the guess so far', p.guess, 'length of guess', p.guess.length);
-}
 function round(p) {
 	if (p.guess.length < p.word.length) {
 		console.log('Keep guessing');
