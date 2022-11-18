@@ -47,7 +47,7 @@ class Player {
 		// round(p);
 	}
 
-	setRandomWord() {
+	setRandomWord(a) {
 		var random = Math.floor(Math.random() * wordBank[a].length);
 		this.word = wordBank[a][random];
 	}
