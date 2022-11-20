@@ -1,168 +1,157 @@
-@font-face {
-    font-family: 'Press Start 2P';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK0nS.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'Archivo Narrow';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/archivonarrow/v24/tss5ApVBdCYD5Q7hcxTE1ArZ0Zz8oY2KRmwvKhhvLFGKpA.ttf) format('truetype');
-  }
-  @font-face {
-    font-family: 'VT323';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2hsY.ttf) format('truetype');
-  }
-  .flexrow {
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// font-family: 'Press Start 2P', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=VT323&display=swap');
+//     font-family: 'Archivo Narrow', sans-serif;
+// font-family: 'VT323', monospace;
+
+.flexrow {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-  .flexcolumn {
+}
+.flexcolumn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+p {
+  font-size: 1.2em;
+}
+
+@red: #ff0000;
+@pink: #f110b9;
+@blue: #0004ff;
+@purple: #f508f5;
+@white: #fff;
+@black: #000;
+@grey: #808080;
+@green: #0df50d;
+@yellow: #fbff00;
+@bgShade: #fbff0070;
+
+body {
+    .flexcolumn();
+    // font-family: 'Press Start 2P', cursive;
     font-family: 'Archivo Narrow', sans-serif;
     font-family: 'VT323', monospace;
-    background-color: #000;
-    color: #f110b9;
-  }
-  body header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2em;
-  }
-  body main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body main form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-  }
-  body main form input[type=text] {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-family: 'VT323', monospace;
-  }
-  body main form select {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-family: 'VT323', monospace;
-    padding: 0.5em;
-  }
-  body main form button {
-    font-family: 'Archivo Narrow', sans-serif;
-    font-family: 'VT323', monospace;
-    background-color: #000;
-    box-shadow: 5px 2px #808080;
-    color: #f110b9;
-    margin: 1em;
-  }
-  body main .board {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 1em;
-    padding: 2em;
-    gap: 10em;
-  }
-  body main .board .boardGuess {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body main .board .boardGuess .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  body main .board .boardGuess .row .letter {
-    width: 50px;
-    height: 50px;
-    border: solid 2px #f110b9;
-    border-radius: 20%;
-    margin: 0.2em;
-    background-color: #fff;
-    color: #f110b9;
-  }
-  body main .board .boardGuess .keyboard {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 650px;
-  }
-  body main .board .boardGuess .keyboard span {
-    width: 50px;
-    height: 50px;
-    border: solid 2px #f110b9;
-    border-radius: 20%;
-    margin: 0.2em;
-    text-align: center;
-    font-size: 2.1em;
-  }
-  body main .board .boardGuess .keyboard .white {
-    background-color: white;
-  }
-  body main .board .boardGuess .keyboard .green {
-    background-color: green;
-  }
-  body main .board .boardGuess .keyboard .yellow {
-    background-color: yellow;
-  }
-  body main .board .boardGuess .keyboard .grey {
-    background-color: grey;
-  }
-  body main .contribs {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  body main .contribs .contrib {
-    margin: 1em;
-    padding: 0.5em;
-    border: 3px groove #FFEDAB;
-    background-color: #DBEBD4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body main .contribs .contrib a {
-    color: black;
-    text-decoration: underline;
-    margin: 1em;
-    padding: 0.5em;
-    background-color: #DBEBD4;
-  }
-  body main .contribs .contrib .contribImg {
-    max-width: 100px;
-    margin: 0.3em;
-  }
-  
+    background-color: @black;
+    color: @pink;
+
+    header {
+        .flexcolumn();
+        margin: 2em;
+    }
+    main {
+        .flexcolumn();
+
+        #hideForm {
+          display: none;
+
+          form {
+            .flexcolumn();
+            margin: 1em;
+
+            input[type=text] {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+            }
+            select {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+                padding: .5em;
+            }
+            button {
+                font-family: 'Archivo Narrow', sans-serif;
+                font-family: 'VT323', monospace;
+                background-color: @black;
+                box-shadow: 5px 2px @grey;
+                color: @pink;
+                margin: 1em;
+            }
+        }
+        }
+        .board {
+            .flexrow();
+            margin: 1em;
+            padding: 2em;
+            gap: 10em;
+
+            .boardGuess {
+                .flexcolumn();
+
+                .row {
+                    .flexrow();
+
+                    .letter {
+                        width: 50px;
+                        height: 50px;
+                        border: solid 2px @pink;
+                        border-radius: 20%;
+                        margin: .2em;
+                        background-color: @white;
+                        color: @pink;
+                    }
+                }
+                .keyboard {
+                    .flexrow();
+                    flex-wrap: wrap;
+                    width: 650px;
+
+                    span {
+                        width: 50px;
+                        height: 50px;
+                        border: solid 2px @pink;
+                        border-radius: 20%;
+                        margin: .2em;
+                        text-align: center;
+                        font-size: 2.1em;
+                    }
+                    .white {
+                        background-color: white;
+                    }
+                    .green {
+                        background-color: green;
+                    }
+                    .yellow {
+                        background-color: yellow;
+                    }
+                    .grey {
+                        background-color: grey;
+                    }
+                }
+            }
+        }
+        .contribs {
+            .flexrow();
+            flex-wrap: wrap;
+
+            .contrib {
+                margin: 1em;
+                padding: .5em;
+                border: 3px groove #FFEDAB;
+                background-color: #DBEBD4;
+                .flexcolumn();
+
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    margin: 1em;
+                    padding: .5em;
+                    background-color: #DBEBD4;
+                }
+                .contribImg {
+                    max-width: 100px;
+                    margin: .3em;
+                }
+            }
+        }
+    }
+}

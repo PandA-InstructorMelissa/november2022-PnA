@@ -29,17 +29,7 @@ function playGame(e){
             alert("Player One please enter your guess")
             console.log('player object check', playerOne.turns)
             console.log('player guess check as keys are pressed', playerOne.guess.length)
-            var r = round(playerOne)
-            if (r) {
-                round(playerOne)
-            } else {
-                r = round(playerTwo)
-                if (r) {
-                    round(playerTwo)
-                } else {
-                    console.log("both players guessed")
-                }
-            }
+
         }
         playing = false
     }

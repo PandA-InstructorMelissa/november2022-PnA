@@ -31,6 +31,15 @@
   justify-content: center;
   align-items: center;
 }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+p {
+  font-size: 1.2em;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -54,23 +63,26 @@ body main {
   justify-content: center;
   align-items: center;
 }
-body main form {
+body main #hideForm {
+  display: none;
+}
+body main #hideForm form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 1em;
 }
-body main form input[type=text] {
+body main #hideForm form input[type=text] {
   font-family: 'Archivo Narrow', sans-serif;
   font-family: 'VT323', monospace;
 }
-body main form select {
+body main #hideForm form select {
   font-family: 'Archivo Narrow', sans-serif;
   font-family: 'VT323', monospace;
   padding: 0.5em;
 }
-body main form button {
+body main #hideForm form button {
   font-family: 'Archivo Narrow', sans-serif;
   font-family: 'VT323', monospace;
   background-color: #000;
