@@ -1,5 +1,8 @@
-const updateBoard = (player, event) => {
-	let currentBoxPosition = 0;
+let currentRow;
+let currentBox;
+let currentBoxPosition = 0;
+
+const updateBoard = async (player, event) => {
 	console.log('I clicked the letter', event.target.innerText);
 	var l = event.target.innerText;
 	console.log('Current index:', currentBoxPosition);
@@ -23,12 +26,13 @@ const updateBoard = (player, event) => {
 		console.log(currentRow);
 		console.log(currentBox);
 	} else {
+		console.log('Next box');
 		currentBox = currentBox.nextElementSibling;
 		currentBoxPosition++;
 	}
 };
 
-const makePlayerBoard = (p, num) => {
+const makePlayerBoard = async (p, num) => {
 	var node = document.createElement('div');
 	node.setAttribute('class', 'boardGuess');
 	node.setAttribute('id', num);
@@ -40,6 +44,7 @@ const makePlayerBoard = (p, num) => {
 	for (var i = 1; i <= 6; i++) {
 		var div = document.createElement('div');
 		div.setAttribute('class', 'row');
+		console.log(num + i);
 		div.setAttribute('id', num + i);
 		// builds each letter box in the row
 		for (var lc = 1; lc <= letterCount; lc++) {
@@ -47,11 +52,19 @@ const makePlayerBoard = (p, num) => {
 			span.setAttribute('class', 'letter');
 			div.appendChild(span);
 		}
+		console.log(div);
 		node.appendChild(div);
 	}
+
+	currentRow = node.firstElementChild.nextElementSibling;
+	console.log(node);
+	currentBox = currentRow.firstElementChild;
+	console.log(currentBox);
+	document.getElementById('board').append(node);
+	return 0;
 };
 
-const makePlayerKeyboard = async (p, num) => {
+const makePlayerKeyboard = (p, num) => {
 	var keys = document.createElement('div');
 	keys.setAttribute('class', 'keyboard');
 	for (var i = 0; i < 26; i++) {
@@ -64,6 +77,7 @@ const makePlayerKeyboard = async (p, num) => {
 		key.setAttribute('class', Object.values(p.keyboard)[i]);
 		keys.appendChild(key);
 	}
-	let node = await document.getElementById(num).appendChild(keys);
-	document.getElementById('board').appendChild(node);
+	document.getElementById(num)?.append(keys);
+	// document.getElementById('board').append(node);
+	return 0;
 };
