@@ -3,9 +3,19 @@ let currentBox;
 let currentBoxPosition = 0;
 
 const updateBoard = async (player, event) => {
+	checkLetterGuess(player, event);
+	// console.log('I clicked the letter', event.target.innerText);
+	var l = event.target.innerText;
+	currentBox.innerText = l;
+	player.letterChoice(l);
+	checkEndOfRow(player);
+};
+
+const checkLetterGuess = (player, event) => {
 	console.log('I clicked the letter', event.target.innerText);
 	var l = event.target.innerText;
 	console.log('Current index:', currentBoxPosition);
+
 	if (player.word.includes(l) && player.word[currentBoxPosition] == l) {
 		event.target.setAttribute('class', 'green');
 		currentBox.style.backgroundColor = 'green';
@@ -17,7 +27,9 @@ const updateBoard = async (player, event) => {
 		currentBox.style.backgroundColor = 'red';
 	}
 	currentBox.innerText = l;
-	player.letterChoice(l);
+};
+
+const checkEndOfRow = (player) => {
 	if (player.guess.length === player.word.length) {
 		currentRow = currentRow.nextElementSibling;
 		currentBox = currentRow.firstElementChild;
